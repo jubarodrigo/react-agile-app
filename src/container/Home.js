@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import HomeCard from '../ui/HomeCard';
-import {hashHistory} from 'react-router';
-export default class Home extends Component{
+import { hashHistory } from 'react-router';
+export default class Home extends Component {
 
-    homeCardReleases ={
+    homeCardReleases = {
         title: 'Releases',
         text: 'Manage Releases',
         action: () => hashHistory.push('/releases')
     }
-    homeCardBacklog ={
+    homeCardBacklog = {
         title: 'Backlog',
         text: 'Manage Backlog',
         action: () => hashHistory.push('/backlogs')
     }
-    homeCardSprints ={
+    homeCardSprints = {
         title: 'Sprints',
         text: 'Manage Sprints',
         action: () => hashHistory.push('/sprints')
     }
 
     render() {
-        return(
+        return (
             <div className="container text-center">
                 <div className="row">
-                    <HomeCard {...this.homeCardBacklog}/>
-                    <HomeCard {...this.homeCardReleases}/>
-                    <HomeCard {...this.homeCardSprints}/>
+                    <HomeCard {...this.homeCardBacklog} />
+                    <HomeCard {...this.homeCardReleases} />
+                    <HomeCard {...this.homeCardSprints} />
                 </div>
             </div>
         );

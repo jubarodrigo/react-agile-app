@@ -9,7 +9,7 @@ class App extends Component {
     const logo = 'Test Dev';
     return (
       <div className="container">
-        <NavBar logo={logo}/>
+        <NavBar logo={logo} />
         {this.props.children}
       </div>
     );
