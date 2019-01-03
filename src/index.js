@@ -9,7 +9,6 @@ import Backlogs from './container/Backlogs';
 import Sprints from './container/Sprints';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path='/' component={App}>

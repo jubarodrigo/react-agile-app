@@ -6,7 +6,7 @@ import Home from './container/Home';
 
 class App extends Component {
   render() {
-    const logo = 'Test Dev';
+    const logo = 'Home';
     return (
       <div className="container">
         <NavBar logo={logo} />
