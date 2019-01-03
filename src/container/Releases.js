@@ -55,7 +55,6 @@ export default class Releases extends Component {
                                 </tr>
                             );
                         })}
-
                     </tbody>
                 </table>
             </div>
