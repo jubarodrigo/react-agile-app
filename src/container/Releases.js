@@ -5,6 +5,7 @@ export default class Releases extends Component {
 
     constructor() {
         super();
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             releases: [
                 {
@@ -31,10 +32,21 @@ export default class Releases extends Component {
         }
     }
 
+    handleSubmit(e,{name,date}){
+        e.preventDefault();
+        var state = this.state;
+        var myRelease = {
+            id: state.releases.length +1,
+            releaseName: name,
+            releaseDate: date
+        }
+        this.setState({releases: state.releases.concat(myRelease)});
+    }
+
     render() {
         return (
             <div className="container" style={{ paddingTop: '30px' }}>
-                <ReleaseForm />
+                <ReleaseForm submitHandler={this.handleSubmit} />
                 <table className="table table-hover">
                     <thead>
                         <tr>

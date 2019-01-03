@@ -5,6 +5,7 @@ export default class Backlogs extends Component {
 
     constructor(){
         super();
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state={
             backlogs: [
                 {
@@ -31,10 +32,21 @@ export default class Backlogs extends Component {
         }
     }
 
+    handleSubmit(e,{name,date}){
+        e.preventDefault();
+        var state = this.state;
+        var myBacklog = {
+            id: state.backlogs.length +1,
+            backlogName: name,
+            backlogDate: date,
+        }
+        this.setState({backlogs: state.backlogs.concat(myBacklog)});
+    }
+
     render(){
         return(
             <div className="container" style={{ paddingTop: '30px' }}>
-            <BacklogForm />
+            <BacklogForm submitHandler={this.handleSubmit}/>
             <table className="table table-hover">
                     <thead>
                         <tr>

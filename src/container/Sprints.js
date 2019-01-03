@@ -5,6 +5,7 @@ export default class Sprints extends Component {
 
     constructor() {
         super();
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state={
             sprints: [
                 {
@@ -31,10 +32,21 @@ export default class Sprints extends Component {
         }
     }
 
+    handleSubmit(e,{name,date}){
+        e.preventDefault();
+        var state = this.state;
+        var mySprint = {
+            id: state.sprints.length +1,
+            sprintName: name,
+            sprintDate: date,
+        }
+        this.setState({sprints: state.sprints.concat(mySprint)});
+    }
+
     render(){
         return(
             <div className="container" style={{ paddingTop: '30px' }}>
-            <SprintForm />
+            <SprintForm submitHandler={this.handleSubmit}/>
             <table className="table table-hover">
                     <thead>
                         <tr>
