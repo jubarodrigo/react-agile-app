@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SprintForm from '../ui/SprintForm';
 
 export default class Sprints extends Component {
@@ -6,7 +6,7 @@ export default class Sprints extends Component {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state={
+        this.state = {
             sprints: [
                 {
                     id: 1,
@@ -32,22 +32,26 @@ export default class Sprints extends Component {
         }
     }
 
-    handleSubmit(e,{name,date}){
+    handleSubmit(e, { name, date }) {
         e.preventDefault();
         var state = this.state;
         var mySprint = {
-            id: state.sprints.length +1,
+            id: state.sprints.length + 1,
             sprintName: name,
             sprintDate: date,
         }
-        this.setState({sprints: state.sprints.concat(mySprint)});
+
+        if (!mySprint.sprintName == '' && !mySprint.sprintDate == '') {
+            this.setState({ sprints: state.sprints.concat(mySprint) });
+        }
+
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="container" style={{ paddingTop: '30px' }}>
-            <SprintForm submitHandler={this.handleSubmit}/>
-            <table className="table table-hover">
+                <SprintForm submitHandler={this.handleSubmit} />
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

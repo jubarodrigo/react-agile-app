@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SprintForm = ({submitHandler}) => {
+const SprintForm = ({ submitHandler }) => {
 
     let _sprintName, _sprintDate;
     const handleSubmit = (e) => {

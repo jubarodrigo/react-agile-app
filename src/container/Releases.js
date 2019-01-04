@@ -32,15 +32,19 @@ export default class Releases extends Component {
         }
     }
 
-    handleSubmit(e,{name,date}){
+    handleSubmit(e, { name, date }) {
         e.preventDefault();
         var state = this.state;
         var myRelease = {
-            id: state.releases.length +1,
+            id: state.releases.length + 1,
             releaseName: name,
             releaseDate: date
         }
-        this.setState({releases: state.releases.concat(myRelease)});
+
+        if (!myRelease.releaseName == '' && !myRelease.releaseDate == '') {
+            this.setState({ releases: state.releases.concat(myRelease) });
+        }
+
     }
 
     render() {
